@@ -1,7 +1,9 @@
+// importを絶対パスで指定するためbaseUrlを指定
 {
   "compilerOptions": {
-    "paths": {
-      "@/*": ["./*"]
-    }
+    // "paths": {
+    //   "@/*": ["./*"]
+    // }
+    "baseUrl": "."
   }
 }
