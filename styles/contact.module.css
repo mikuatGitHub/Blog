@@ -1,0 +1,9 @@
+/* 子要素1つめ以外に適用 */
+.stack > * + *{
+  margin-top: var(--stack-space);
+  --stack-space: 1rem;
+}
+
+.heading{
+  font-size: var(--body);
+}

@@ -7,11 +7,11 @@
 import 'styles/globals.css';
 import Layout from 'components/layout';
 
-export default function RootLayout({ children }) {
+export default function RootLayout({children}) {
  return (
     <html lang="ja">
       <body>
-        <Layout>{ children }</Layout>
+        <Layout>{children}</Layout>
       </body>
     </html>
   )

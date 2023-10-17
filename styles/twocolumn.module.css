@@ -1,0 +1,30 @@
+/* sp */
+.flexContainer{
+  composes: sideBySide from './flex.module.css';
+  margin: var(--space-md) 0 var(--space-lg);
+  gap: var(--space-md);
+}
+/* pc */
+@media(min-width: 768px){
+  .main{
+    width: 768px;
+  }
+  .side{
+    width: 240px;
+    /* スクロール時固定 */
+    position: sticky;
+    align-self: flex-start;
+    top: 40px;
+  }
+
+  /* 右揃え */
+  .side *{
+    text-align: right;
+  }
+  .side :is(div,ul){
+    width: fit-content;
+    margin-left: auto;
+    place-items: flex-end;
+    place-content: flex-end;
+  }
+}

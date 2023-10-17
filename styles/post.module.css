@@ -1,0 +1,22 @@
+/* 子要素の<1つめ>以外 */
+.stack > * + *{
+  margin-top: var(--stack-space);
+  --stack-space: 1.5rem;
+}
+.stack h2,
+.stack h3{
+  --stack-space: 2rem;
+}
+.stack h2 + *,
+.stack h3 + *{
+  --stack-space: 0.8rem;
+}
+
+.stack p{
+  line-height: 1.8;
+}
+
+.stack ul{
+  padding: revert;
+  list-style: revert;
+}

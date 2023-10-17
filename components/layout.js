@@ -7,9 +7,9 @@ import Footer from 'components/footer'
 export default function Layout( props ){
   return(
     <React.Fragment>
-      <Header />
+      <Header></Header>
         <main>{ props.children }</main>
-      <Footer />
+      <Footer></Footer>
     </React.Fragment>
   )
 }
