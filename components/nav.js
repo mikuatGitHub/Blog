@@ -16,7 +16,7 @@ export default function Nav(){
           </Link>
         </li>
         <li>
-          <Link legacyBehavior href="/blog">
+          <Link legacyBehavior href="/blog/">
             <a>Blog</a>
           </Link>
         </li>

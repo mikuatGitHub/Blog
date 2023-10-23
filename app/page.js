@@ -1,5 +1,4 @@
 // /index
-// componentのHeroを返す
 import Image from 'next/image'
 import styles from './page.module.css'
 

@@ -1,11 +1,13 @@
 import Container from 'components/container'
 import Hero from 'components/hero'
+
 import { TwoColumn,TwoColumnMain,TwoColumnSide } from 'components/twocolumn'
 import Post from 'components/post'
 import Contact from 'components/contact'
 import Image from 'next/image'
 import pic from 'images/about.jpg'
 import { images } from 'next.config'
+
 
 export default function About() {
   return (
@@ -44,4 +46,8 @@ export default function About() {
       </Container>
     </div>
   )
+}
+
+export const metadata = {
+  title: 'about',
 }

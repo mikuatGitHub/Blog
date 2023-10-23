@@ -8,3 +8,7 @@ export default function Blog() {
     </Container>
   )
 }
+
+export const metadata = {
+  title: 'blog',
+}
