@@ -1,23 +1,23 @@
 // ルートレイアウト
 import 'styles/globals.css';
-import Layout from 'components/layout';
+import Layout from 'components/layout'
 
-// メタデータimport
-import { siteMeta } from 'lib/constants';
-const { siteLang } = siteMeta;
+// メタデータのためのimport
 import {
   baseMetadata,
   openGraphMetadata,
   twitterMetadata,
 } from 'lib/baseMetadata'
+import { siteMeta } from 'lib/constants'
+const { siteLang } = siteMeta
 
 // アイコンライブラリFontAwesomeのNextjs用設定
-// スタイルを全体に適用する、個別適用を無効化
+// スタイルの個別適用を無効化
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
 config.autoAddCss= false
 
-
+// 描画処理
 export default function RootLayout({children}) {
   return (
     <html lang={siteLang}>
@@ -30,11 +30,9 @@ export default function RootLayout({children}) {
 
 export const metadata = {
   ...baseMetadata,
-
   openGraph: {
     ...openGraphMetadata,
   },
-
   twitter: {
     ...twitterMetadata,
   },

@@ -1,26 +1,26 @@
-'use client'
+// 'use client'
+// import { useState } from 'react'
 
-import { useState } from 'react'
-import Link from 'next/link'
 import styles from 'styles/nav.module.css'
+import Link from 'next/link'
 
 export default function Nav(){
   return(
     <nav>
       <ul className={styles.list}>
         <li>
-          <Link legacyBehavior href="/">
-            <a>Home</a>
+          <Link href="/">
+            Home
           </Link>
         </li>
         <li>
-          <Link legacyBehavior href="/about">
-            <a>About</a>
+          <Link href="/work">
+            Work
           </Link>
         </li>
         <li>
-          <Link legacyBehavior href="/blog/">
-            <a>Blog</a>
+          <Link href="/blog">
+            Blog
           </Link>
         </li>
       </ul>

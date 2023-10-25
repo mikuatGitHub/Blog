@@ -1,10 +1,13 @@
 import styles from 'styles/hero.module.css'
+
 import Image from 'next/image'
 import pic from 'images/main-bg.jpg'
 
-export default function Hero({ title, subtitle, imageOn= false }) {
+
+export default function Hero({ title, subtitle, imageOn = false }) {
   return (
-      <div className={styles.flexContainer}>
+    <div className={styles.flexContainer}>
+
         <div className={styles.textbox}>
           <h1 className={styles.title}>{ title }</h1>
           <p className={styles.subtitle}>{subtitle}</p>
@@ -14,7 +17,6 @@ export default function Hero({ title, subtitle, imageOn= false }) {
           <figure>
             <Image
               priority
-              placeholder='blur'
               src={pic}
               alt="main-bg"
               width={576}
@@ -23,7 +25,9 @@ export default function Hero({ title, subtitle, imageOn= false }) {
               sizes="(min-width:1152px) 576px,(min-width:768px) 50vw,100vw"
               style={{ width:'100%', height:'auto' }}
             ></Image>
-          </figure>)}
-      </div>
+          </figure>
+        )}
+
+      </div>/* flexContainer */
   )
 }

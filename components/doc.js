@@ -1,6 +1,8 @@
-import styles from 'styles/post.module.css'
+// 文書セクションを描画
 
-export default function Post() {
+import styles from 'styles/doc.module.css'
+
+export default function Doc() {
   return (
     <div className={styles.stack}>
       <h2>自己紹介</h2>
