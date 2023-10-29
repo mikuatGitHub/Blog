@@ -24,7 +24,7 @@ export default async function Blog() {
 
   return (
     <Container>
-      <Hero title="Blog" subtitle="ブログ一覧"></Hero>
+      <Hero title="Blog" subtitle="microCMSと連携したブログ一覧"></Hero>
       <Posts posts={posts} ></Posts>
     </Container>
   )

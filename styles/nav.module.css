@@ -14,7 +14,6 @@
   /* ボタン */
   .btn{
     all: unset;
-    -webkit-tap-highlight-color: transparent;
     width: 40px;
     height: 40px;
     position: fixed;

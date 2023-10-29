@@ -4,6 +4,7 @@
   margin: var(--space-md) 0 var(--space-lg);
   gap: var(--space-md);
 }
+
 /* pc */
 @media(min-width: 768px){
   .main{

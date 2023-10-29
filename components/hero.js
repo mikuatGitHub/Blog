@@ -19,6 +19,7 @@ export default function Hero({ title, subtitle, imageOn = false }) {
               priority
               src={pic}
               alt="main-bg"
+              // 領域
               width={576}
               height="auto"
               // レスポンシブ 1152<* , 768*<1152 , *<768

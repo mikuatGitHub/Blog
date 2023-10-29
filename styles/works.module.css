@@ -1,0 +1,18 @@
+.stack > * + * {
+  margin: var(--stack-space, 1.5rem) 0;
+}
+
+.stack h2,
+.stack h3{
+  --stack-space: 2rem;
+}
+
+.stack h2 + *,
+.stack h3 + *{
+  --stack-space: 0.8rem;
+}
+
+.stack p{
+  line-height: 1.8;
+}
+
