@@ -1,5 +1,5 @@
 // ルートレイアウト
-import 'styles/globals.css';
+import 'app/globals.css';
 import Layout from 'components/layout'
 
 // メタデータのためのimport

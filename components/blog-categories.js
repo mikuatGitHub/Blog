@@ -11,15 +11,16 @@ export default function BlogCategories({ categories }) {
         <FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
         <span className='sr-only'>Categories</span>
       </h3>
+
       <ul>
-        {categories.map(
+        {/* {categories.map(
           ({ name, slug }) => (
             <li key={slug}>
               <Link href={`/blog/category/${slug}`}>{name}</Link>
             </li>
           )
-        )}
+        )} */}
       </ul>
-    </div>
+    </div>/* flexContainer */
   )
 }

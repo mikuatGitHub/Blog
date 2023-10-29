@@ -1,21 +1,89 @@
-.list{
-  display: flex;
-  gap: 2rem;
+/* pc */
+@media(min-width: 768px){
+  .btn{
+    display: none;
+  }
+  .list{
+    display: flex;
+    gap: 2rem;
+  }
 }
 
-@media(hover: hover){
-  .list a:hover{
-    color: var(--accent);
+/* sp用ハンバーガーメニュー */
+@media(max-width: 767px){
+  /* ボタン */
+  .btn{
+    all: unset;
+    -webkit-tap-highlight-color: transparent;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 200;
+    cursor: pointer;
+  }
+  .close .btn{
+    color: var(--gray-75);
+  }
+  .open .btn{
+    color: var(--white);
+  }
+  /* ボタン要素内部 */
+  .btn{
+    display: grid;
+    place-items: center;
+  }
+  .btn::before,
+  .btn::after,
+  .btn .bar{
+    display: block;
+    grid-area: 1 / 1;
+    width: 32px;
+    height: 1px;
+    background-color: currentColor;
+    content: '';
+    transition: transform 0.4s;
+  }
+  .close .btn::before{
+    transform: translateY(-8px);
+  }
+  .close .btn::after{
+    transform: translateY(8px);
+  }
+  .open .btn::before{
+    transform: rotate(45deg);
+  }
+  .open .btn::after{
+    transform: rotate(-45deg);
+  }
+  .open .btn .bar{
+    transform: scale(0);
+  }
+
+  /* リスト */
+  /* 画面外に配置 */
+  .list{
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    position: fixed;
+    inset: 0 -40% 0 100%;
+    z-index: 100;
+    transition: transform 0.4s;
+  }
+  /* .open付加で画面内へ移動 */
+  .open .list{
+    transform: translateX(-100%);
+  }
+  .list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
   }
 }
-/* モバイル環境のルートレイアウトで:hoverは使えない */
-/* aをしセットしてから、:activeで代替する */
-@media(hover: none){
-  /* tapで適用される標準highlight-colorを削除 */
-  .list a{
-    -webkit-tap-highlight-color: transparent;
-  }
-  .list a:active{
-    color: var(--accent);
-  }
+
+/* ホバー */
+.btn:hover, .list a:hover{
+  color: var(--accent);
 }

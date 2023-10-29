@@ -14,13 +14,13 @@ import { eyecatchLocal } from 'lib/constants'
 export default async function Blog() {
   const posts = await getAllPosts()
 
-  for (const post of posts) {
-    if (!post.hasOwnProperty("eyecatch")) {
-      post.eyecatch = eyecatchLocal;
-    }
-    const { base64 } = await getPlaiceholder(post.eyecatch.url);
-    post.eyecatch.blurDataURL = base64;
-  }
+  // for (const post of posts) {
+  //   if (!post.hasOwnProperty("eyecatch")) {
+  //     post.eyecatch = eyecatchLocal;
+  //   }
+  //   const { base } = await getPlaiceholder(post.eyecatch.url);
+  //   post.eyecatch.blurDataURL = base;
+  // }
 
   return (
     <Container>
@@ -30,22 +30,14 @@ export default async function Blog() {
   )
 }
 
-// export async function getStaticProps() {
-//   const allposts = await getAllPosts()
-
-
-//   return {
-//     props: {
-//       posts: allposts,
-//     },
-//     // return allposts.map(
-//     //   ({Post}) => {
-//     //     return { post: Post }
-//     //   }
-//     // )
-//   }
-
-// }
+export async function getStaticProps() {
+  const allposts = await getAllPosts()
+  return {
+    props: {
+      posts: allposts,
+    },
+  }
+}
 
 export const metadata = {
   title: 'blog',

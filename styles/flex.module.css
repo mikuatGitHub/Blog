@@ -6,6 +6,7 @@
   align-items: center;
   text-align: center;
 }
+
 /* コンテンツを並べる（基本） */
 /* sp */
 .sideBySide{
@@ -19,6 +20,7 @@
     justify-content: space-between;
   }
 }
+
 /* コンテンツを並べる（中央揃え） */
 /* sp */
 .sideBySideCenter{
