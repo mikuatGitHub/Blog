@@ -14,30 +14,30 @@ import { eyecatchLocal } from 'lib/constants'
 export default async function Blog() {
   const posts = await getAllPosts()
 
-  // for (const post of posts) {
-  //   if (!post.hasOwnProperty("eyecatch")) {
-  //     post.eyecatch = eyecatchLocal;
-  //   }
-  //   const { base } = await getPlaiceholder(post.eyecatch.url);
-  //   post.eyecatch.blurDataURL = base;
-  // }
+  for (const post of posts) {
+    if (!post.hasOwnProperty("eyecatch")) {
+      post.eyecatch = eyecatchLocal;
+    }
+    //   const { base64 } = await getPlaiceholder(post.eyecatch.url);
+  //   post.eyecatch.blurDataURL = base64;
+}
 
   return (
     <Container>
-      <Hero title="Blog" subtitle="microCMSと連携したブログ一覧"></Hero>
+      <Hero title="Blog" subtitle="microCMSと連携したブログ"></Hero>
       <Posts posts={posts} ></Posts>
     </Container>
   )
 }
 
-export async function getStaticProps() {
-  const allposts = await getAllPosts()
-  return {
-    props: {
-      posts: allposts,
-    },
-  }
-}
+// export async function getStaticProps() {
+//   const allposts = await getAllPosts()
+//   return {
+//     props: {
+//       posts: allposts,
+//     },
+//   }
+// }
 
 export const metadata = {
   title: 'blog',

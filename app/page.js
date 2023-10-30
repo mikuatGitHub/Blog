@@ -6,11 +6,11 @@ import Document from 'components/document'
 import Contact from 'components/contact'
 
 
-// 描画処理
-export default function Home() {
+export default async function Home() {
+
   return (
     <Container>
-      <Hero title="HOME" subtitle="React(Next.js)を使用したポートフォリオサイト" imageOn></Hero>
+      <Hero title="HOME" subtitle="ポートフォリオサイト" imageOn></Hero>
 
       <TwoColumn>
         <TwoColumnMain>

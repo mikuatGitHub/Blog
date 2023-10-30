@@ -1,0 +1,20 @@
+.stack{
+  padding: var(--space-sm) 0;
+}
+.stack > * + *{
+  margin-top: var(--stack-space, 1rem);
+}
+
+.subtitle{
+  font-size: var(--small-heading2);
+}
+.title{
+  --stack-space: 0.2rem;
+}
+.flexBox{
+  font-size: var(--small-heading3);
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  color: var(--gray-50);
+}

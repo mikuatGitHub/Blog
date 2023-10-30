@@ -1,3 +1,4 @@
+// blog/[slug]
 import { getPostBySlug, getAllSlugs } from "lib/api"
 import { extractText } from "lib/extract-text"
 import { prevNextPost } from "lib/prev-next-post"
@@ -12,10 +13,10 @@ import BlogCategories from "components/blog-categories"
 import Pagination from "components/pagination"
 
 import Image from "next/image"
-import { getPlaiceholder } from "plaiceholder"
 import { eyecatchLocal } from 'lib/constants'
+import { getPlaiceholder } from "plaiceholder"
 
-// 単独記事を描画
+
 export default async function Post({params}) {
   const slug = params.slug
   const post = await getPostBySlug(slug)
@@ -27,47 +28,63 @@ export default async function Post({params}) {
   } = post
   const description= extractText(content)
 
-  // const eyecatch = post.eyecatch ?? eyecatchLocal
-  // const { base } = await getPlaiceholder(eyecatch.url)
-  // eyecatch.blurDataURL = base
+  const eyecatch = post.eyecatch ?? eyecatchLocal
+
+  // const { base64 } = await getPlaiceholder(eyecatch.url)
+  // eyecatch.blurDataURL = base64
 
   const allSlugs = await getAllSlugs()
-  // const [prevPost, nextPost]= prevNextPost( allSlugs, slug)
+  const [prevPost, nextPost]= prevNextPost(allSlugs, slug)
 
   return (
     <Container>
       <article>
-        <BlogHeader title={title} publish={publish}></BlogHeader>
+        <BlogHeader
+          title={title}
+          subtitle="Blog Article"
+          publish={publish}
+        ></BlogHeader>
 
-        {/* <figure>
-        <Image
-          priority
-          key={eyecatch.url}
-          src={eyecatch.url}
-          alt=""
-          width={eyecatch.width}
-          height={eyecatch.height}
-          sizes="(min-width: 1152px)1152px, 100vw"
+        <figure>
+          <Image
+            priority
+            key={eyecatch.url}
+            src={eyecatch.url}
+            alt=""
+            width={eyecatch.width}
+            height={eyecatch.height}
+            sizes="(min-width: 1152px)1152px, 100vw"
+            style={{ width: "100%", height: "auto" }}
+            // placeholder="blur"
+            // blurDataURL={eyecatch.blurDataURL}
           ></Image>
-        </figure> */}
+        </figure>
 
-      <TwoColumn>
-        <TwoColumnMain>
-         <BlogBody>
-           <ConvertBody contentHTML={content}></ConvertBody>
-          </BlogBody>
-       </TwoColumnMain>
+        <TwoColumn>
+          <TwoColumnMain>
+            <BlogBody>
+              <ConvertBody contentHTML={content}></ConvertBody>
+            </BlogBody>
+          </TwoColumnMain>
 
-        <TwoColumnSide>
-          <BlogCategories categories={categories}></BlogCategories>
-        </TwoColumnSide>
-      </TwoColumn>
+          <TwoColumnSide>
+            <BlogCategories categories={categories}></BlogCategories>
+          </TwoColumnSide>
+        </TwoColumn>
+
+        <Pagination
+          prevText={prevPost.title}
+          prevUrl={`/blog/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/blog/${nextPost.slug}`
+          }></Pagination>
 
       </article>
     </Container>
-  )
+  );
 }
 
+// SSR
 export const dynamicParams= false
 export async function generateStaticParams() {
   const allSlugs = await getAllSlugs()

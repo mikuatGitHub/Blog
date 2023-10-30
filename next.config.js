@@ -2,9 +2,13 @@
 
 /** @type {import('next').NextConfig} */
 
-module.exports = {
+const nextConfig = {
+  // output: 'export',
   reactStrictMode: true,
   images: {
+  //   loader: 'imgix',
+  //   path: '',
+
     remotePatterns: [
       {
         protocol: 'https',
@@ -16,3 +20,5 @@ module.exports = {
     // domains: ['images.microcms-assets.io']
   },
 };
+
+module.exports= nextConfig

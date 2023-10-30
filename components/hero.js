@@ -1,7 +1,12 @@
 import styles from 'styles/hero.module.css'
 
 import Image from 'next/image'
-import pic from 'images/main-bg.jpg'
+const pic = {
+  src: "https://images.microcms-assets.io/assets/05c7fd8a7db44577a0b0f4ee9821c2f6/ec6ec1ff4e81426f8fbf91bf57cea8bf/main-bg.jpg",
+  height: 1600,
+  width: 1066,
+  blurDataUrl: 'data:image/jpeg;base64',
+};
 
 
 export default function Hero({ title, subtitle, imageOn = false }) {

@@ -1,0 +1,13 @@
+.flexContainer{
+  composes: spaceBetween from 'styles/flex.module.css';
+  margin: var(--space-lg) 0;
+}
+
+.label{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.next{
+  margin-left: auto;
+}

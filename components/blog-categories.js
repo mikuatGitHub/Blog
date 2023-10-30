@@ -6,10 +6,9 @@ import { faFolderOpen } from '@fortawesome/free-regular-svg-icons'
 
 export default function BlogCategories({ categories }) {
   return (
-    <div className={styles.flexContainer}>
+    <div className={styles.flexBox}>
       <h3 className={styles.heading}>
         <FontAwesomeIcon icon={faFolderOpen}></FontAwesomeIcon>
-        <span className='sr-only'>Categories</span>
       </h3>
 
       <ul>
@@ -21,6 +20,6 @@ export default function BlogCategories({ categories }) {
           )
         )} */}
       </ul>
-    </div>/* flexContainer */
+    </div>/* flexBox */
   )
 }

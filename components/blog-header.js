@@ -7,13 +7,15 @@ import { faClock } from "@fortawesome/free-regular-svg-icons"
 export default function BlogHeader({ title, subtitle, publish = "" }) {
   return (
     <div className={styles.stack}>
-      <p className={styles.subtitle}>{ subtitle }</p>
-      <h1 className={styles.title}>{ title }</h1>
+      
+      <p className= {styles.subtitle}>{ subtitle }</p>
+      <h1 className={styles.title}>{title}</h1>
+
       { publish && (
-        <div>
-          <FontAwesomeIcon icon={ faClock } size="lg" color="var(--gray-25)"></FontAwesomeIcon>
+        <div className= {styles.flexBox}>
+          <FontAwesomeIcon icon={ faClock }></FontAwesomeIcon>
           <ConvertDate dateISO={ publish }></ConvertDate>
-        </div>
+        </div>/* flexBox */
       ) }
     </div>/* stack */
   )
