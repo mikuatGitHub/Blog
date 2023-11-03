@@ -32,7 +32,6 @@ export default async function Post({params}) {
 
   const eyecatch = post.eyecatch ?? eyecatchLocal
 
-
   // const { base64 } = await getPlaiceholder(eyecatch.url)
   // eyecatch.blurDataURL = base64
 
@@ -100,6 +99,15 @@ export async function generateStaticParams() {
   )
 }
 
+export async function getStaticPaths() {
+  return {
+    paths: [
+      {params: {slug: '1month'}},
+    ],
+    fallback: false
+  }
+}
+
 export const metadata = {
-  title: "blog",
+  title: "blog-page",
 };

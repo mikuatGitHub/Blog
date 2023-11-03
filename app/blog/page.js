@@ -1,5 +1,4 @@
 // ブログ一覧ページ
-
 import { getAllPosts } from 'lib/api'
 
 import Container from 'components/container'
@@ -33,6 +32,7 @@ export default async function Blog() {
         <TwoColumnMain>
           <Posts posts={posts} ></Posts>
         </TwoColumnMain>
+        
         <TwoColumnSide>
           <h2>category</h2>
         </TwoColumnSide>
