@@ -6,9 +6,10 @@ import { prevNextPost } from "lib/prev-next-post"
 import Container from "components/container"
 import BlogHeader from "components/blog-header"
 import BlogBody from "components/blog-body"
+
 import { TwoColumn, TwoColumnMain, TwoColumnSide } from "components/twocolumn"
 import ConvertBody from "components/convert-body"
-import BlogCategories from "components/blog-categories"
+import PostCategories from "components/post-categories"
 
 import Pagination from "components/pagination"
 
@@ -24,16 +25,19 @@ export default async function Post({params}) {
     title,
     publishDate: publish,
     content,
-    categories
+    categories,
   } = post
+
   const description= extractText(content)
 
   const eyecatch = post.eyecatch ?? eyecatchLocal
+
 
   // const { base64 } = await getPlaiceholder(eyecatch.url)
   // eyecatch.blurDataURL = base64
 
   const allSlugs = await getAllSlugs()
+
   const [prevPost, nextPost]= prevNextPost(allSlugs, slug)
 
   return (
@@ -68,7 +72,7 @@ export default async function Post({params}) {
           </TwoColumnMain>
 
           <TwoColumnSide>
-            <BlogCategories categories={categories}></BlogCategories>
+            <PostCategories categories={categories}></PostCategories>
           </TwoColumnSide>
         </TwoColumn>
 
@@ -95,3 +99,7 @@ export async function generateStaticParams() {
     }
   )
 }
+
+export const metadata = {
+  title: "blog",
+};
