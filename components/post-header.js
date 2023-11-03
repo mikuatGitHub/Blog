@@ -1,14 +1,14 @@
-import styles from "styles/blog-header.module.css"
+import styles from "styles/post-header.module.css"
 
-import ConvertDate from "components/convert-date"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faClock } from "@fortawesome/free-regular-svg-icons"
 
-export default function BlogHeader({ title, subtitle, publish = "" }) {
+import ConvertDate from "components/convert-date"
+
+export default function PostHeader({ title,  publish = "" }) {
   return (
     <div className={styles.stack}>
-      
-      <p className= {styles.subtitle}>{ subtitle }</p>
+
       <h1 className={styles.title}>{title}</h1>
 
       { publish && (
@@ -16,7 +16,8 @@ export default function BlogHeader({ title, subtitle, publish = "" }) {
           <FontAwesomeIcon icon={ faClock }></FontAwesomeIcon>
           <ConvertDate dateISO={ publish }></ConvertDate>
         </div>/* flexBox */
-      ) }
+      )}
+      
     </div>/* stack */
   )
 }

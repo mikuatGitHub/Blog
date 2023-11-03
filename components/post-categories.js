@@ -20,7 +20,7 @@ export default function PostCategories({categories}) {
             </li>
           )
         )} */}
-        
+        <h2>category</h2>
       </ul>
     </div>/* flexContainer */
   )

@@ -1,16 +1,16 @@
 import { getAllCategories, getAllPostsByCategory } from "lib/api";
 import Container from "components/container";
-import BlogHeader from "components/blog-header";
+import BlogHeader from "components/post-header";
 import Posts from "components/posts";
 
 import { getPlaiceholder } from "plaiceholder";
 import { eyecatchLocal } from "lib/constants";
 
-export default async function Category({params}) {
+export default async function Category({ params }) {
   const catSlug = params.slug;
 
   const allCats = await getAllCategories();
-  const cat = allCats.find(({slug}) => slug === catSlug);
+  const cat = allCats.find(({ slug }) => slug === catSlug);
   const name = cat.name;
 
   const posts = await getAllPostsByCategory(cat.id);
@@ -36,8 +36,7 @@ export const dynamicParams = false;
 export async function generateStaticParams() {
   const allCats = await getAllCategories();
 
-  return allCats.map(
-    ({slug}) => {
+  return allCats.map(({ slug }) => {
     return { slug: slug };
   });
 }
