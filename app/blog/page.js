@@ -5,6 +5,9 @@ import { getAllPosts } from 'lib/api'
 import Container from 'components/container'
 import Hero from 'components/hero'
 import Posts from 'components/posts'
+import { TwoColumn } from 'components/twocolumn'
+import { TwoColumnMain } from 'components/twocolumn'
+import { TwoColumnSide } from 'components/twocolumn'
 
 // 外部画像を読み込めなかった時の代替画像とブラー画像を用意
 import { getPlaiceholder } from 'plaiceholder'
@@ -25,7 +28,15 @@ export default async function Blog() {
   return (
     <Container>
       <Hero title="Blog" subtitle="microCMSと連携したブログ"></Hero>
-      <Posts posts={posts} ></Posts>
+
+      <TwoColumn>
+        <TwoColumnMain>
+          <Posts posts={posts} ></Posts>
+        </TwoColumnMain>
+        <TwoColumnSide>
+          <h2>category</h2>
+        </TwoColumnSide>
+      </TwoColumn>
     </Container>
   )
 }

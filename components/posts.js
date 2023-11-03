@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function Posts({posts}) {
   return (
-    <div className= {styles.grid}>
+    <div className={styles.stack}>
 
       {Object.values(posts).map(({ title,slug,eyecatch }) => (
         <article className={styles.post} key={slug}>
@@ -16,8 +16,8 @@ export default function Posts({posts}) {
                 priority
                 src={eyecatch.url}
                 alt=""
-                width={576}
-                height={200}
+                width={eyecatch.width}
+                height={eyecatch.height}
                 sizes="(min-width:1152px)576px, 50vw"
                 style={{ width: "100%", height: "auto" }}
               ></Image>
@@ -28,6 +28,7 @@ export default function Posts({posts}) {
 
         </article>
       ))}
-    </div>/* grid */
+
+    </div>/* stack */
   );
 }

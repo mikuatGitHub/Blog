@@ -7,7 +7,7 @@ export default function Work() {
 
   return (
     <Container>
-      <Hero title="Work" subtitle="これまでに作成したもの"></Hero>
+      <Hero title="Work" subtitle="作成中のページ"></Hero>
       <Works></Works>
     </Container>
   );

@@ -1,16 +1,22 @@
-.grid{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-jump);
-  margin-bottom: var(--space-lg);
+.stack{
+  display: flex;
+  flex-direction: column;
 }
 
 .post h2{
-  margin-top: 0.5rem;
   font-size: var(--small-heading3);
   font-weight: 400;
+  text-decoration: underline;
+  flex: 3;
 }
 .post figure{
   position: relative;
   /* aspect-ratio: 16/9; */
+  flex: 2;
+}
+.post > * {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 30px;
 }

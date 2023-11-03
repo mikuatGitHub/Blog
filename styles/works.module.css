@@ -16,3 +16,10 @@
   line-height: 1.8;
 }
 
+/* .grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-jump);
+  margin-bottom: var(--space-lg);
+} */
+
