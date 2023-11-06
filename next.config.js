@@ -3,12 +3,15 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  // experimental: {
+  //   appDir: true,
+  // },
   // output: 'export',
+
   reactStrictMode: true,
   images: {
   //   loader: 'imgix',
   //   path: '',
-
     remotePatterns: [
       {
         protocol: 'https',

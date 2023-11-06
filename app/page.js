@@ -16,7 +16,7 @@ export default async function Home() {
         <TwoColumnMain>
           <Document></Document>
         </TwoColumnMain>
-        
+
         <TwoColumnSide>
           <Contact></Contact>
         </TwoColumnSide>

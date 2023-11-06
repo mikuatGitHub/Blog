@@ -1,37 +1,50 @@
 // blog/[slug]
 import { getPostBySlug, getAllSlugs } from "lib/api";
-import { extractText } from "lib/extract-text";
 import { prevNextPost } from "lib/prev-next-post";
 
 import Container from "components/container";
 import PostHeader from "components/post-header";
 import PostBody from "components/post-body";
-
-import { TwoColumn, TwoColumnMain, TwoColumnSide } from "components/twocolumn";
 import ConvertBody from "components/convert-body";
-import PostCategories from "components/post-categories";
 
 import Pagination from "components/pagination";
 
 import Image from "next/image";
 import { eyecatchLocal } from "lib/constants";
 
-export default async function Post({ params }) {
-  const slug = params.slug;
-  const post = await getPostBySlug(slug);
-  const { title, publishDate: publish, content, categories } = post;
-
-  const description = extractText(content);
-
-  const eyecatch = post.eyecatch ?? eyecatchLocal;
-
+// SSG
+export const dynamicParams = false;
+export async function generateStaticParams() {
   const allSlugs = await getAllSlugs();
 
+  return allSlugs.map(
+    ({ Slug }) => {
+    return { slug: Slug };/* フォルダ名slug */
+   });
+}
+
+// export async function getStaticPaths() {
+//   const allSlugs = await getAllSlugs();
+//   const paths= allSlugs.map((slug)=> `/blog/${slug}`)
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }
+
+// 非同期処理
+export default async function Slug({ params }) {
+  const slug = params.slug;
+  const post = await getPostBySlug(slug);
+  const { title, publishDate: publish, content } = post;
+  const eyecatch = post.eyecatch ?? eyecatchLocal
+
+  const allSlugs = await getAllSlugs();
   const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
 
   return (
     <Container>
-      
+
         <PostHeader
           title={title}
           publish={publish}
@@ -50,17 +63,9 @@ export default async function Post({ params }) {
           ></Image>
         </figure>
 
-        <TwoColumn>
-          <TwoColumnMain>
-            <PostBody>
-              <ConvertBody contentHTML={content}></ConvertBody>
-            </PostBody>
-          </TwoColumnMain>
-
-          <TwoColumnSide>
-            <PostCategories categories={categories}></PostCategories>
-          </TwoColumnSide>
-        </TwoColumn>
+        <PostBody>
+          <ConvertBody contentHTML={content}></ConvertBody>
+        </PostBody>
 
         <Pagination
           prevText={prevPost.title}
@@ -73,15 +78,6 @@ export default async function Post({ params }) {
   );
 }
 
-// SSR
-export const dynamicParams = false;
-export async function generateStaticParams() {
-  const allSlugs = await getAllSlugs();
-
-  return allSlugs.map(({ Slug }) => {
-    return { slug: Slug };
-  });
-}
 
 export const metadata = {
   title: "blog-page",

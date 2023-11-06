@@ -3,7 +3,7 @@ import styles from 'styles/posts.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export default function Posts({posts}) {
+export default function Posts({ posts }) {
   return (
     <div className={styles.stack}>
 
@@ -14,7 +14,7 @@ export default function Posts({posts}) {
             <figure>
               <Image
                 priority
-                src={eyecatch.url}
+                src= {eyecatch.url}
                 alt=""
                 width={eyecatch.width}
                 height={eyecatch.height}
