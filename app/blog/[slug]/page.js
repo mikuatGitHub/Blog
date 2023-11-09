@@ -13,14 +13,15 @@ import Image from "next/image";
 import { eyecatchLocal } from "lib/constants";
 
 // SSG
-export const dynamicParams = false;
+// export const dynamicParams = false;
 export async function generateStaticParams() {
-  const allSlugs = await getAllSlugs();
+  const posts =await getAllSlugs()
+  // const posts = await fetch('https://.../posts').then((res)=>res.json());
 
-  return allSlugs.map(
-    ({ Slug }) => {
-    return { slug: Slug };/* フォルダ名slug */
-   });
+  return posts.map(
+    (post) => ({
+      slug: post.slug,
+    }))/* フォルダ名slug */
 }
 
 // export async function getStaticPaths() {
@@ -34,7 +35,7 @@ export async function generateStaticParams() {
 
 // 非同期処理
 export default async function Slug({ params }) {
-  const slug = params.slug;
+  const { slug } = params;
   const post = await getPostBySlug(slug);
   const { title, publishDate: publish, content } = post;
   const eyecatch = post.eyecatch ?? eyecatchLocal

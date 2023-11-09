@@ -3,15 +3,13 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  // experimental: {
-  //   appDir: true,
-  // },
   // output: 'export',
-
   reactStrictMode: true,
+
   images: {
   //   loader: 'imgix',
-  //   path: '',
+    //   path: '',
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

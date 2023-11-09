@@ -1,3 +1,4 @@
+// useStateをクライアント側で処理
 'use client'
 
 import styles from 'styles/nav.module.css'
