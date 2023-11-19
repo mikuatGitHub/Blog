@@ -1,5 +1,10 @@
+.stack{
+  margin-bottom: var(--space-jump);
+}
+
 .stack > * + * {
-  margin-top: var(--stack-space, 1.5rem);
+  margin-top: var(--stack-space);
+  --stack-space: 1.5rem;
 }
 
 .stack h2,

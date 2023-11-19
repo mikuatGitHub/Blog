@@ -9,7 +9,7 @@ const nextConfig = {
   images: {
   //   loader: 'imgix',
     //   path: '',
-    unoptimized: true,
+    // unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 
-export async function GET(request) {
+export function GET(request) {
   const { searchParams } = new URL(request.url);
 
   const secret = searchParams.get("secret");
@@ -12,7 +12,7 @@ export async function GET(request) {
 
   try {
     revalidatePath("/blog/[slug]");
-    return NextResponse.json({ revalidated: true, now: Date.now() });
+    return NextResponse.json({ revalidated: false, now: Date.now() });
   } catch (err) {
     return NextResponse.json(
       { message: "Error revalidating" },
