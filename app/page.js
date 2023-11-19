@@ -5,8 +5,7 @@ import { TwoColumn,TwoColumnMain,TwoColumnSide } from 'components/twocolumn'
 import Document from 'components/document'
 import Contact from 'components/contact'
 
-
-export default async function Home() {
+export default function Home() {
 
   return (
     <Container>

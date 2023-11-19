@@ -6,11 +6,8 @@ import Container from "components/container";
 import PostHeader from "components/post-header";
 import PostBody from "components/post-body";
 import ConvertBody from "components/convert-body";
-
-import Pagination from "components/pagination";
-
 import Image from "next/image";
-import { eyecatchLocal } from "lib/constants";
+
 
 // SSG
 // export const dynamicParams = false;
@@ -24,21 +21,11 @@ export async function generateStaticParams() {
     }))/* フォルダ名slug */
 }
 
-// export async function getStaticPaths() {
-//   const allSlugs = await getAllSlugs();
-//   const paths= allSlugs.map((slug)=> `/blog/${slug}`)
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// }
-
-// 非同期処理
 export default async function Slug({ params }) {
   const { slug } = params;
   const post = await getPostBySlug(slug);
   const { title, publishDate: publish, content } = post;
-  const eyecatch = post.eyecatch ?? eyecatchLocal
+  const eyecatch = post.eyecatch
 
   const allSlugs = await getAllSlugs();
   const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
@@ -67,13 +54,6 @@ export default async function Slug({ params }) {
         <PostBody>
           <ConvertBody contentHTML={content}></ConvertBody>
         </PostBody>
-
-        <Pagination
-          prevText={prevPost.title}
-          prevUrl={`/blog/${prevPost.slug}`}
-          nextText={nextPost.title}
-          nextUrl={`/blog/${nextPost.slug}`}
-        ></Pagination>
 
     </Container>
   );

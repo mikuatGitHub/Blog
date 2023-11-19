@@ -1,4 +1,4 @@
-// ルートレイアウト
+// rootLayout
 import 'app/globals.css';
 import Layout from 'components/layout'
 
@@ -11,13 +11,12 @@ import {
 import { siteMeta } from 'lib/constants'
 const { siteLang } = siteMeta
 
-// アイコンライブラリFontAwesomeのNextjs用設定
-// スタイルの個別適用を無効化
+// FontAwesome for Nextjs
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { config } from '@fortawesome/fontawesome-svg-core'
-config.autoAddCss= false
+config.autoAddCss= false/* 自動個別適用を無効化 */
 
-// 描画処理
+// render
 export default function RootLayout({children}) {
   return (
     <html lang={siteLang}>
